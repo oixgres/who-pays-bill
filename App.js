@@ -4,7 +4,6 @@ import { MyContext } from './src/context';
 
 import StageOne from './src/components/stage_one';
 import StageTwo from './src/components/stage_two';
-
 class App extends Component {
   static contextType = MyContext;
 
