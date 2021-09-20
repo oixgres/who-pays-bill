@@ -1,4 +1,4 @@
-//Min: 14:25
+//Min: 4:26
 import React, { useContext } from 'react';
 import { Alert, View, StyleSheet } from 'react-native';
 
@@ -18,6 +18,7 @@ const stage_one = () => {
         key={i}
         bottomDivider
         style={{width: '100%'}}
+        onLongPress = {()=>context.removePlayer(i)}
       >
         <ListItem.Chevron />
         <ListItem.Content>
@@ -58,7 +59,7 @@ const stage_one = () => {
               onBlur={handleBlur('player')}
               value={values.player}
               
-              // Si player tiene errorer y ha sido tocado el input
+              // Si player tiene errores y ha sido tocado el input
               renderErrorMessage={errors.player && touched.player}
               errorMessage={errors.player}
               errorStyle={{
@@ -73,10 +74,26 @@ const stage_one = () => {
             />
             <View style={{padding: 20, width:'100%'}}>
               {
+                context.state.players && context.state.players.length > 0 ?
                 <>
                   <Text>List of players</Text>
                   {renderPlayers()}
+                  
+                  {
+                    context.state.players.length > 1 ?
+                    <View style={styles.viewCenter}>
+                      <Button
+                        buttonStyle={styles.smallButton}
+                        title='Start'
+                        onPress={()=> context.next()}
+                      />
+                    </View>
+                    :
+                    null
+                  }
                 </>
+                :
+                null
               }
             </View>
           </>
@@ -88,11 +105,21 @@ const stage_one = () => {
 }
 
 const styles = StyleSheet.create({
+  viewCenter:{
+    width:'100%',
+    flex: 1,
+    justifyContent:'center',
+    alignItems:'center'
+  },
   button:{
     backgroundColor: '#8F95D3',
     marginTop: 20
+  },
+  smallButton:{
+    backgroundColor: '#8F95D3',
+    marginTop: 20,
+    width: '150px'
   }
-
 })
 
 export default stage_one

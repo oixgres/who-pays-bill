@@ -2,11 +2,15 @@ import { registerRootComponent } from 'expo';
 import App from './App';
 
 import React from 'react';
+import Toast from 'react-native-toast-message';
+
 import { MyProvider } from './src/context';
 
 const provider = () =>(
   <MyProvider>
     <App/>
+    <Toast ref={(ref)=> Toast.setRef(ref)} />
+
   </MyProvider>
 )
 
