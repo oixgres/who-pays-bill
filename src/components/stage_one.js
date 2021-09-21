@@ -45,9 +45,11 @@ const stage_one = () => {
         >
         {({handleChange, handleBlur, handleSubmit, values, touched, errors})=>(
           <>
-            <Text>
-              Who pays the bill?
-            </Text>
+            <Text
+              style={{
+                fontFamily:'Kanit-ExtraBold'
+              }}
+            >Who pays the bill?</Text>
             <Input
               placeholder='Insert name here'
               leftIcon={{ type: 'feather', name: 'user-plus' }}
