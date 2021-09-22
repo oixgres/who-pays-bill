@@ -7,6 +7,7 @@ import * as Yup from 'yup'; //https://github.com/jquense/yup
 import {Input, Button, ListItem, Text} from 'react-native-elements'; //https://reactnativeelements.com/
 
 import { MyContext } from '../context';
+import { MainLogo} from '../utils/tools'
 
 
 const stage_one = () => {
@@ -45,11 +46,8 @@ const stage_one = () => {
         >
         {({handleChange, handleBlur, handleSubmit, values, touched, errors})=>(
           <>
-            <Text
-              style={{
-                fontFamily:'Kanit-ExtraBold'
-              }}
-            >Who pays the bill?</Text>
+            <MainLogo/>
+            
             <Input
               placeholder='Insert name here'
               leftIcon={{ type: 'feather', name: 'user-plus' }}

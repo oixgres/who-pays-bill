@@ -1,6 +1,8 @@
 import React, { Component, useContext } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
+
+import { MainLogo } from "../utils/tools";
 import { MyContext } from '../context';
 
 const stage_two = () => {
@@ -10,7 +12,8 @@ const stage_two = () => {
 
   return (
     <View>
-      <Text> The looser is </Text>
+      <MainLogo/>
+
       <Text style={styles.loserStyle}> {context.state.result} </Text>
       <Button
         title="Try Again"
@@ -32,6 +35,7 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   loserStyle:{
+    textAlign: 'center',
     marginTop: 30,
     fontSize: 30,
     color: '#508991'
